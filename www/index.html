@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+      <ons-page>
+        <ons-list>
+          <ons-list-item onclick="fn.load('home.html')" tappable>
+            Home
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('settings.html')" tappable>
+            Settings
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('about.html')" tappable>
+            About
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="login.html"></ons-splitter-content>
+  </ons-splitter>
+
+  <ons-template id="login.html">
+    <ons-page id="login">
+      <h3 style="text-align: center; opacity: 0.6; padding-top: 20px;">
+        NTTk静岡Aチーム
+      </h3>
+      <div style="text-align: center;">
+        <h4 style="margin-bottom:0.5em;">ID</h4>
+        <input type="text" id="login_user_id">
+        <h4 style="margin-bottom:0.5em;">名前</h4>
+        <input type="text" id="login_display_name">
+        <br><br><br>
+        <button onClick="checkLoginInput()">ログイン</button>
+        　
+        <button onClick="fn.load('addnew.html')">新規登録</button>
+      </div>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="addnew.html">
+    <ons-page id="addnew">
+      <h3 style="text-align: center; opacity: 0.6; padding-top: 20px;">
+        新規登録
+      </h3>
+      <div style="text-align: center;">
+        <h4 style="margin-bottom:0.5em;">ID(非公開)</h4>
+        <input type="text" id="addnew_user_id">
+        <h4 style="margin-bottom:0.5em;">名前(公開)</h4>
+        <input type="text" id="addnew_display_name">
+        <br><br><br>
+        <button onClick="checkAddnewInput()">登録</button>
+        　
+        <button onClick="fn.load('login.html')">キャンセル</button>
+      </div>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="home.html">
+    <ons-page id="home">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button onclick="fn.open()">
+            <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Home
+        </div>
+      </ons-toolbar>
+
+      <div id="main-message">
+        <div> Now Loading... </div>
+      </div>
+
+      <button id="final-anker"></button>
+
+      <div id="bottom-input">
+        <textarea id="input-message" row="4" col="30"></textarea>
+        <button onClick="reloadMessageArea()">R</button>
+      </div>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="settings.html">
+  <ons-page id="setting">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Settings
+      </div>
+    </ons-toolbar>
+    <h3 style="text-align: center; opacity: 0.6;">
+      こんな値持ってます
+    </h3>
+    <h4>ID</h4>
+    <div style="margin-left: 1em;" id="setting_user_id"></div>
+    <h4>名前</h4>
+    <div style="margin-left: 1em;" id="setting_display_name"></div>
+    <h4>最終更新</h4>
+    <div style="margin-left: 1em;" id="setting_last_update"></div>
+    <h4>テーブルの再創生</h4>
+    <div style="margin-left: 1em;" id="setting_sqlite">
+        <button onClick="initializeLocalDB()">ぽちっとね</button>
+    </div>
+  </ons-page>
+  </ons-template>
+
+  <ons-template id="about.html">
+  <ons-page id="about">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        About
+      </div>
+    </ons-toolbar>
+    <h4>開発環境</h4>
+    <div>
+      Monaca + NiftyCloudMobileBackend
+    </div>
+    <h4>ログ</h4>
+    <div id="about_log"></div>
+  </ons-page>
+  </ons-template>
+
+</body>
+</html>

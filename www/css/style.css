@@ -1,0 +1,154 @@
+/**/
+
+.l-message {
+    text-align: left;
+    margin-left: 2%;
+    margin-right: 23%;
+    width: 75%;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.r-message {
+    text-align: right;
+    margin-right: 2%;
+    margin-left: 23%;
+    width: 75%;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+
+.message-name {
+    text-align: inherit;
+    margin-bottom: 7px;
+    font-size: 90%;
+}
+
+.l-message > .message-name {
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.r-message > .message-name {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+
+.message-date {
+    text-align: inherit;
+    font-size: 60%;
+}
+
+.l-message > .message-date {
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.r-message > .message-date {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+
+.message-text {
+    position: relative;
+/*    text-align: inherit;  */
+    text-align: left;
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid #CCCCCC;
+    border-radius: 0.25em;
+}
+
+.l-message > .message-text {
+    background-color: #FFFFFF;
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.r-message > .message-text {
+    background-color: #AFEEEE;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.message-text:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #CCCCCC;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.l-message > .message-text:before {
+    left: 0.75em;
+}
+
+.r-message > .message-text:before {
+    right: 0.75em;
+}
+
+.message-text:after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.l-message > .message-text:after {
+    border-bottom: 10px solid #FFFFFF;
+    left: 0.75em;
+}
+
+.r-message > .message-text:after {
+    border-bottom: 10px solid #AFEEEE;
+    right: 0.75em;
+}
+
+#main-message {
+    padding-bottom: 4em;
+}
+
+#bottom-input {
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-bottom:0px;
+    border-top: 1px solid #666666;
+    padding: 0.5em 5%;
+    background-color: #FFFFFF;
+}
+
+#bottom-input > textarea {
+    width: 80%;
+    float: left;
+    height: 4em;
+    display: table-cell;
+    vertical-align: top;
+}
+#bottom-input > button {
+    width: 2em;
+    height: 4em;
+    margin-left: 5px;
+    text-align: center;
+}
